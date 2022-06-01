@@ -1,0 +1,8 @@
+- name: Installs my GUI apps
+  community.general.pacman:
+    name:
+      - firefox
+      - vlc
+      - qbittorrent
+      - discord
+      

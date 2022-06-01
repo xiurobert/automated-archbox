@@ -1,0 +1,15 @@
+- hosts: all
+  pre_tasks:
+    - name: Update pacman cache
+      become: true
+      community.general.pacman:
+        update_cache: true
+  roles:
+    - role: bootstrap
+      become: true
+    # - role: install-yay
+    #   become: false
+    - role: guiapps
+      become: true
+    - role: tweaks
+      become: true

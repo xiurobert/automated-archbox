@@ -1,0 +1,27 @@
+- name: Installs basic tools
+  community.general.pacman:
+    name:
+      - htop
+      - openssh
+      - vim
+      - git
+    state: present
+- name: Installs graphical environment
+  community.general.pacman:
+    name:
+      - qtile
+      - rofi
+      - pcmanfm-qt
+      - alacritty
+      - xwallpaper
+    state: present
+- name: Installs dotfile manager
+  community.general.pacman:
+    name: chezmoi
+    state: present
+
+- name: Installs some bloat
+  community.general.pacman:
+    name: 
+      - gnome-keyring
+      - xclip
