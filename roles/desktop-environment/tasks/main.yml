@@ -1,0 +1,65 @@
+- name: Installs qtile
+  community.general.pacman:
+    name: qtile
+    state: present
+- name: Installs psutil (with pip)
+  ansible.builtin.pip:
+    name: psutil
+    state: present
+- name: Installs rofi
+  community.general.pacman:
+    name: rofi
+    state: present
+- name: Installs picom
+  community.general.pacman:
+    name: picom
+    state: present
+- name: Installs pcmanfm
+  community.general.pacman:
+    name: pcmanfm
+    state: present
+- name: Installs alacritty
+  community.general.pacman:
+    name: alacritty
+    state: present
+- name: Installs powerline-shell
+  ansible.builtin.pip:
+    name: powerline-shell
+    state: present
+- name: Installs xwallpaper
+  community.general.pacman:
+    name: xwallpaper
+    state: present
+- name: Installs gnome-keyring
+  community.general.pacman:
+    name: 
+      - gnome-keyring
+- name: Installs xclip
+  community.general.pacman:
+    name: xclip
+    state: present
+- name: Installs lightdm
+  community.general.pacman:
+    name: lightdm
+    state: present
+- name: Installs litarvan webkit greeter for lightdm
+  community.general.pacman:
+    name:
+      - lightdm-webkit2-greeter
+      - lightdm-webkit-theme-litarvan
+    state: present
+- name: Modify lightdm to use lightdm-webkit2-greeter
+  ansible.builtin.lineinfile:
+    path: /etc/lightdm/lightdm.conf
+    line: 'greeter-session=lightdm-webkit2-greeter'
+    state: present
+- name: Set theme of webkit2-greeter to litarvan
+  ansible.builtin.lineinfile:
+    path: /etc/lightdm/lightdm-webkit2-greeter.conf
+    line: 'webkit_theme = litarvan'
+    state: present
+- name: Enable lightdm service
+  ansible.builtin.systemd:
+    name: lightdm
+    enabled: yes
+    state: started

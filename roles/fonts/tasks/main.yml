@@ -1,0 +1,8 @@
+- name: Installs jetbrains-mono font
+  community.general.pacman:
+    name: ttf-jetbrains-mono
+    state: present
+- name: Installs fira sans font
+  community.general.pacman:
+    name: ttf-fira-sans
+    state: present

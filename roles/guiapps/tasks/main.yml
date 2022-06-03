@@ -1,8 +1,17 @@
-- name: Installs my GUI apps
+- name: Installs firefox
   community.general.pacman:
-    name:
-      - firefox
-      - vlc
-      - qbittorrent
-      - discord
+    name: firefox
+    state: present
+- name: Installs vlc
+  community.general.pacman:
+    name: vlc
+    state: present
+- name: Installs qbittorrent
+  community.general.pacman:
+    name: qbittorrent
+    state: present
+- name: Installs discord
+  community.general.pacman:
+    name: discord
+    state: present
       

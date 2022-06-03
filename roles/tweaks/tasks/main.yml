@@ -1,11 +1,11 @@
-- name: Disables mouse acceleration
+- name: Disables mouse acceleration using libinput
   copy:
     dest: "/etc/X11/xorg.conf.d/50-mouse-acceleration.conf"
     content: |
       Section "InputClass"
         Identifier "Logitech catchall"
+        Driver "libinput"
         MatchIsPointer "yes"
-        Option "AccelerationProfile" "-1"
-        Option "AccelerationScheme" "none"
-        Option "AccelSpeed" "-1"
+        Option "AccelProfile" "flat"
+        Option "AccelSpeed" "0"
       EndSection

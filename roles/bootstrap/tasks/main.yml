@@ -1,27 +1,28 @@
-- name: Installs basic tools
+- name: Installs git
   community.general.pacman:
-    name:
-      - htop
-      - openssh
-      - vim
-      - git
+    name: git
     state: present
-- name: Installs graphical environment
+- name: Installs vim
   community.general.pacman:
-    name:
-      - qtile
-      - rofi
-      - pcmanfm-qt
-      - alacritty
-      - xwallpaper
+    name: vim
     state: present
-- name: Installs dotfile manager
+- name: Installs htop
+  community.general.pacman:
+    name: htop
+    state: present
+- name: Installs openssh
+  community.general.pacman:
+    name: openssh
+    state: present
+- name: Installs bash-completion
+  community.general.pacman:
+    name: bash-completion
+    state: present
+- name: Installs dotfile manager (chezmoi)
   community.general.pacman:
     name: chezmoi
     state: present
-
-- name: Installs some bloat
+- name: Installs python-pip
   community.general.pacman:
-    name: 
-      - gnome-keyring
-      - xclip
+    name: python-pip
+    state: present

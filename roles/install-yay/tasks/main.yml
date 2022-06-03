@@ -1,6 +1,0 @@
-- name: Clones yay from AUR
-  git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: "{{ ansible_env.HOME }}/yay"
-- name: Builds and installs yay
-  shell: "cd {{ ansible_env.HOME }}/yay && makepkg -si"

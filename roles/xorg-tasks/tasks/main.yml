@@ -1,0 +1,16 @@
+- name: Installs xorg-server
+  community.general.pacman:
+    name: xorg-server
+    state: present
+- name: Installs xorg-xinit
+  community.general.pacman:
+    name: xorg-xinit
+    state: present
+- name: Installs xorg-xrandr
+  community.general.pacman:
+    name: xorg-xrandr
+    state: present
+- name: Installs xorg-xset
+  community.general.pacman:
+    name: xorg-xset
+    state: present
