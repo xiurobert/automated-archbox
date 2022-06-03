@@ -7,9 +7,17 @@
   roles:
     - role: bootstrap
       become: true
-    # - role: install-yay
-    #   become: false
+    - role: xorg-tasks
+      become: true
+    - role: desktop-environment
+      become: true
+    - role: fonts
+      become: true
+    - role: soundsystem
+      become: true
     - role: guiapps
       become: true
     - role: tweaks
+      become: true
+    - role: aur-packages
       become: true

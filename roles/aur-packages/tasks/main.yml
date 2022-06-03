@@ -15,24 +15,33 @@
 
 - name: Installing yay
   become: true
-  become_user: "{{ aur_user }}"
+  become_user: "aur_builder"
   kewlfft.aur.aur:
     name: yay
     use: makepkg
-    skip_installed: true
-
-
 - name: Install jetbrains-toolbox
   become: true
-  become_user: "{{ aur_user }}"
+  become_user: "aur_builder"
   kewlfft.aur.aur:
     name: jetbrains-toolbox
     use: yay
-    skip_installed: true
 - name: Install volctl
   become: true
-  become_user: "{{ aur_user }}"
+  become_user: "aur_builder"
   kewlfft.aur.aur:
     name: volctl
     use: yay
-    skip_installed: true
+
+- name: Delete the `aur_builder` user
+  become: true
+  ansible.builtin.user:
+    name: aur_builder
+    state: absent
+    remove: yes
+- name: Remove `aur_builder` from the sudoers group
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    state: absent
+    validate: 'visudo -cf %s'
