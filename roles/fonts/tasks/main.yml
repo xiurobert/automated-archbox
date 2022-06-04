@@ -6,3 +6,7 @@
   community.general.pacman:
     name: ttf-fira-sans
     state: present
+- name: Installs font awesome font
+  community.general.pacman:
+    name: ttf-font-awesome
+    state: present
