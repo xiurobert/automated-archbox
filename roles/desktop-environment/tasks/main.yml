@@ -48,14 +48,18 @@
       - lightdm-webkit2-greeter
       - lightdm-webkit-theme-litarvan
     state: present
-- name: Modify lightdm to use lightdm-webkit2-greeter
+- name: Set lightdm to use greeter as lightdm-webkit2-greeter
+  become: true
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm.conf
+    regexp: '#greeter-session=(.*)'
     line: 'greeter-session=lightdm-webkit2-greeter'
     state: present
-- name: Set theme of webkit2-greeter to litarvan
+- name: Set webkit-theme for lightdm-webkit2-greeter as litarvan
+  become: true
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-webkit2-greeter.conf
+    regexp: '^webkit_theme\s*=\s*\w*'
     line: 'webkit_theme = litarvan'
     state: present
 - name: Enable lightdm service

@@ -14,6 +14,10 @@
   community.general.pacman:
     name: openssh
     state: present
+- name: Enables openssh service
+  ansible.builtin.systemd:
+    name: sshd
+    enabled: true
 - name: Installs bash-completion
   community.general.pacman:
     name: bash-completion
