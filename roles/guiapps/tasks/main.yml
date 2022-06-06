@@ -10,8 +10,8 @@
   community.general.pacman:
     name: qbittorrent
     state: present
-- name: Installs discord
-  community.general.pacman:
-    name: discord
-    state: present
+# - name: Installs discord
+#   community.general.pacman:
+#     name: discord
+#     state: present
       
