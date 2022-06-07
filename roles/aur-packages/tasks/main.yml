@@ -31,12 +31,12 @@
   kewlfft.aur.aur:
     name: volctl
     use: yay
-- name: Install visual-studio-code-bin
-  become: True
-  become_user: "aur_builder"
-  kewlfft.aur.aur:
-    name: visual-studio-code-bin
-    use: yay
+# - name: Install visual-studio-code-bin
+#   become: True
+#   become_user: "aur_builder"
+#   kewlfft.aur.aur:
+#     name: visual-studio-code-bin
+#     use: yay
 - name: Delete the `aur_builder` user
   become: true
   ansible.builtin.user:

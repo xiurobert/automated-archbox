@@ -30,3 +30,13 @@
   community.general.pacman:
     name: python-pip
     state: present
+- name: Installs usbutils
+  community.general.pacman:
+    name: usbutils
+    state: present
+- name: Installs zip and unzip
+  community.general.pacman:
+    name:
+      - zip
+      - unzip
+    state: present

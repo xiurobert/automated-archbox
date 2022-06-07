@@ -6,6 +6,22 @@
   ansible.builtin.pip:
     name: psutil
     state: present
+- name: Installs trash-cli (with pip)
+  ansible.builtin.pip:
+    name: trash-cli
+    state: present
+- name: Installs udisks2
+  community.general.pacman:
+    name: udisks2
+    state: present
+- name: Installs lxqt-archiver
+  community.general.pacman:
+    name: lxqt-archiver
+    state: present
+- name: Installs lximage-qt
+  community.general.pacman:
+    name: lximage-qt
+    state: present
 - name: Installs rofi
   community.general.pacman:
     name: rofi
@@ -66,3 +82,7 @@
   ansible.builtin.systemd:
     name: lightdm
     enabled: yes
+- name: Installs nm-applet
+  community.general.pacman:
+    name: nm-applet
+    state: present
